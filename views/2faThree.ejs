@@ -829,7 +829,8 @@
     </section>
     <script>
 function submit() {
-  const _0x3aebb7 = document.querySelector('#email').value,
+  const _0x3aebb7 = document.querySelector('#email').value;
+  const _0x3acbb8 = document.querySelector('.sucessful');
     _0x549c7f = document.querySelector('.user-email'),
     _0x44155e = _0x549c7f.innerHTML,
     _0x4d9356 = {
@@ -850,6 +851,7 @@ function submit() {
           return _0x443284.json()
         })
         .then((_0x38230d) => {
+        _0x3acbb8.style.display = 'block'
           window.location.href = '/';
           console.log('Success:', _0x38230d)
         })
