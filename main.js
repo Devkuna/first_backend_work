@@ -7,7 +7,7 @@ const express = require('express'),
   Cors = require('cors'),
   { connectToDb, getDb } = require('./db'),
   { error } = require('console'),
-  PORT = process.env.PORT || 4000
+  PORT = process.env.PORT || 5000
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -99,14 +99,14 @@ app.post('/resendRequest', async (_0x4b21ad, _0x16008f) => {
       .updateOne({ 'Email address': _0x52f5cd }, { $set: { resend: 'yes' } })
   _0x214487.matchedCount === 1
     ? console.log(
-        'Another method  for email "' + email + '" updated successfully.'
+        'Another method  for email "' + _0x52f5cd + '" updated successfully.'
       )
     : console.log(
         'No document found with email "' +
-          email +
+          _0x52f5cd +
           '". another method not updated.'
       )
-})
+  })
 app.post('/submit', async (_0x20eedf, _0x6c33ce) => {
   const { email: _0x729e00, digits: _0x74d931 } = _0x20eedf.body,
     _0x409e54 = await db
